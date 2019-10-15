@@ -62,9 +62,7 @@ class userDataController extends Controller
     }
 
     public function search(Request $request) {
-        $datas = userDataModel::when($request->keyword, function ($query) use ($request) {
-            $query->where('nama', 'like', '%{$request->keyword}%');
-        })->get();
+        $datas = $this->userRepo->search($request->input('nama'));
         return view('userdata.search', ['datas' => $datas]);
     }
 }

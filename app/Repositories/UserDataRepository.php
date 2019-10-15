@@ -34,6 +34,6 @@ class UserDataRepository implements UserDataInterface
 
     public function search(string $nama)
     {
-        return UserData::where('nama', 'LIKE', '%' . $nama . '%');
+        return UserData::where('nama', 'LIKE', '%' . $nama . '%')->get();
     }
 }
